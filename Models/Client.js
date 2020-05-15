@@ -9,18 +9,6 @@ fone: {
     type: String,
     required: true,
 },
-cabelo: {
-    type: String,
-    required: true,
-},
-pele: {
-    type: String,
-    required: true,
-},
-olhos: {
-    type: String,
-    required: true,
-},
 createdAt: {
     type: Date,
     default: Date.now,
