@@ -6,6 +6,6 @@ Crie um arquivo ***.env*** na raiz do projeto e adicione as variáveis da seguin
 MONGO_URI="uri do seu atlas ou path do local host"  
 PORT="num da porta que quer que o servidor escute"  
   
-Detalhe: a senha da URI não pode conter caracteres especiais (como "!").  
+Detalhe: a senha da URI ainda não pode conter caracteres especiais (como "!").  
   
 No código essas variáveis já estão sendo acessadas (process.env.MONGO_URI e process.env.PORT). Para mais informações sobre como utilizar o dotenv acesse o [GitHub oficial do dotenv](https://github.com/motdotla/dotenv).
