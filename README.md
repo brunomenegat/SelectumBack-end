@@ -14,4 +14,4 @@ Crie um arquivo ***.env*** na raiz do projeto e adicione as variáveis da seguin
 MONGO_URI="uri do seu atlas ou path do local host"  
 PORT="num da porta que quer que o servidor escute"  
 
-No código essas variáveis já estão sendo acessadas (process.env.MONGO_URI e process.env.PORT). Para mais informações sobre como utilizar o dotenv acesse [GitHub orificial](https://github.com/motdotla/dotenv).
+No código essas variáveis já estão sendo acessadas (process.env.MONGO_URI e process.env.PORT). Para mais informações sobre como utilizar o dotenv acesse o [GitHub orificial](https://github.com/motdotla/dotenv).
