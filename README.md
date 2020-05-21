@@ -1,13 +1,17 @@
 # Backend
 Template made with:
-Node (Yarn); 
-Express; 
-Nodemon; 
-MongoDB (Mongoose).
+Node (Yarn);  
+Express;  
+Nodemon;  
+MongoDB (Mongoose);  
+Dotenv.
  
 ## Variáveis de Ambiente
-As variáveis de ambiente (por exemplo URI do DB e Porta) foram colocadas, por segurança, no arquivo oculto ".env" (que foi adicionado ao .gitignore). Essas variáveis estão sendo gerenciadas pelo pacote "dotenv" e são acessadas pela sintaxe "process.env.NOME_DA_VAR_AMB" (sem aspas).
+As variáveis de ambiente (por exemplo URI do DB e Porta) foram colocadas, por segurança, no arquivo oculto ***.env*** (que foi adicionado ao *.gitignore*). Essas variáveis são gerenciadas pelo pacote *dotenv* e são acessadas pela sintaxe "process.env.NOME_DA_VAR_AMB" (sem aspas).
 
 ### Como proceder
-Crie um arquivo ".env" na raiz do projeto e adicione as variáveis da seguinte maneira: 
-\nMONGO_URI="sua uri".
+Crie um arquivo ***.env*** na raiz do projeto e adicione as variáveis da seguinte maneira:  
+MONGO_URI="uri do seu atlas ou path do local host"  
+PORT="num da porta que quer que o servidor escute"  
+
+No código essas variáveis já estão sendo acessadas (process.env.MONGO_URI e process.env.PORT). Para mais informações sobre como utilizar o dotenv acesse [GitHub orificial](https://github.com/motdotla/dotenv).
