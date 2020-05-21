@@ -3,8 +3,8 @@ As variáveis de ambiente (por exemplo URI do DB e Porta) foram colocadas, por s
 
 ### Como proceder
 Crie um arquivo ***.env*** na raiz do projeto e adicione as variáveis da seguinte maneira:  
-```MONGO_URI="uri do seu atlas ou path do local host"```  
-```PORT="num da porta que quer que o servidor escute"```  
+`MONGO_URI="uri do seu atlas ou path do local host"  
+PORT="num da porta que quer que o servidor escute"`  
   
 Detalhe: a senha da URI ainda não pode conter caracteres especiais (como "!").  
   
