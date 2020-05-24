@@ -9,4 +9,4 @@ var CondominioSchema = new mongoose.Schema({
 
 var Condominio = mongoose.model('Condominio', CondominioSchema);
 
-module.exports = Client;
+module.exports = Condominio;
