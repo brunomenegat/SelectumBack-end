@@ -1,6 +1,7 @@
 const express = require('express');             //web module
 const dotenv = require("dotenv");               //for work with .env
 const mongoose = require('mongoose');           //write objects for MongoDB as you would in JavaScript
+const bodyParser = require("body-parser");      //body-parser
 const routes = require('./routes');             //archieve i created for store routes
 
 const app = express();
