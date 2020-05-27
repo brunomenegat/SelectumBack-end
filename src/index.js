@@ -50,3 +50,4 @@ var createAndPush = function(done) {
 }
 
 createAndPush(function(err, data) {console.log("\nApós adição da primeira coleta:\n"+data)})
+//FIM DO TESTE
