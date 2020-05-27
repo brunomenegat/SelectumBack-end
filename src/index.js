@@ -20,6 +20,9 @@ mongoose.connect(process.env.MONGO_URI, {
 
 app.listen(process.env.PORT);
 
+
+
+
 //TESTANDO ADICAO DE COLETA
 var createAndPush = function(done) {
     var Condominio = require("./models/condominio").Condominio
