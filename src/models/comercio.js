@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
-var CondominioSchema = new mongoose.Schema({
+var ComercioSchema = new mongoose.Schema({
     nome: {type: String, required: true},
     fone: {type: String, required: true},
     endereco: {type: String, required: true},
-    apartamentos: {total: Number, contratados: Number, naoContratados: Number},
     criadoEm: {type: String, default: Date},
     coletas: [{
         metal: Number,
@@ -15,11 +14,11 @@ var CondominioSchema = new mongoose.Schema({
     }]
 });
 
-CondominioSchema.methods.addColeta = function(dadosDaColeta, done) {
+ComercioSchema.methods.addColeta = function(dadosDaColeta, done) {
     this.coletas.push(dadosDaColeta);
     done(null, this)
 };
 
-var Condominio = mongoose.model('Condominio', CondominioSchema);
+var Comercio = mongoose.model('Comercio', ComercioSchema);
 
-module.exports.Condominio = Condominio;
+module.exports.Comercio = Comercio;
