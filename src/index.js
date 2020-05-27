@@ -1,10 +1,10 @@
-const express = require('express');             //web module
-const dotenv = require("dotenv");               //for work with .env
-const mongoose = require('mongoose');           //write objects for MongoDB as you would in JavaScript
-const bodyParser = require("body-parser");      //body-parser
-const routes = require('./routes');             //archieve i created for store routes
+var express = require('express');             //web module
+var dotenv = require("dotenv");               //for work with .env
+var mongoose = require('mongoose');           //write objects for MongoDB as you would in JavaScript
+var bodyParser = require("body-parser");      //body-parser
+var routes = require('./routes');             //archieve i created for store routes
 
-const app = express();
+var app = express();
 
 app.use(express.json());
 app.use(routes);
@@ -22,7 +22,7 @@ app.listen(process.env.PORT);
 
 
 
-
+/*
 //TESTANDO ADICAO DE COLETA
 var createAndPush = function(done) {
     var Condominio = require("./models/condominio").Condominio
@@ -35,7 +35,7 @@ var createAndPush = function(done) {
     /*atol.save(function(err, data) {
         if (err) return console.error(err);
         done(null, data);
-    });  */
+    });  *//*
     console.log("logo após criação:\n"+atol)
     atol.addColeta({
         metal: 23.2,
@@ -51,3 +51,4 @@ var createAndPush = function(done) {
 
 createAndPush(function(err, data) {console.log("\nApós adição da primeira coleta:\n"+data)})
 //FIM DO TESTE
+*/
