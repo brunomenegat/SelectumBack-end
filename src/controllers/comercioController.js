@@ -23,7 +23,7 @@ exports.adicionar_coleta = function(req, res) {
     })
 };
 
-exports.buscar_comercios_nome = function(req, res) {
+exports.listar_comercios_nome = function(req, res) {
     Comercio.find({nome: req.query.nome}, function(err, comercio) {
         if (err) return console.error(err);
         res.json(comercio);
