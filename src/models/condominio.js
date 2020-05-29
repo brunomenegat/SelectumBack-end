@@ -7,6 +7,7 @@ var CondominioSchema = new mongoose.Schema({
     apartamentos: {total: Number, contratados: Number, naoContratados: Number},
     criadoEm: {type: String, default: Date},
     coletas: [{
+        organico: Number,
         metal: Number,
         papel: Number,
         plastico: Number,

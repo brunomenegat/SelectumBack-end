@@ -7,6 +7,7 @@ var ColetorSchema = new mongoose.Schema({
     criadoEm: {type: String, default: Date},
     coletas: [{
         local: {type: String, required: true},
+        organico: Number,
         metal: Number,
         papel: Number,
         plastico: Number,
