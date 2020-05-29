@@ -8,12 +8,13 @@ var ComercioSchema = new mongoose.Schema({
     endereco: {type: String, required: true},
     criadoEm: {type: String, default: Date},
     coletasKg: [{
+        _id: false,
+        data: {type: String, default: Date},
         organico: Number,
         metal: Number,
         papel: Number,
         plastico: Number,
-        vidro: Number,
-        data: {type: String, default: Date}
+        vidro: Number
     }],
     totalKg: {
         organico: {type: Number, default: 0},
@@ -24,16 +25,6 @@ var ComercioSchema = new mongoose.Schema({
     }
 });
 
-ComercioSchema.methods.addColeta = function(dadosDaColeta, done) {
-    this.coletas.push(dadosDaColeta);
-    totalKg.organico += dadosDaColeta.organico;
-    totalKg.metal += dadosDaColeta.metal;
-    totalKg.papel += dadosDaColeta.papel;
-    totalKg.plastico += dadosDaColeta.plastico;
-    totalKg.vidro += dadosDaColeta.vidro;
-    done(null, this)
-};
-
 var Comercio = mongoose.model('Comercio', ComercioSchema);
 
-module.exports.Comercio = Comercio;
+module.exports = Comercio;

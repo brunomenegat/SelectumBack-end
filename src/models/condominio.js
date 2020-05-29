@@ -23,4 +23,4 @@ CondominioSchema.methods.addColeta = function(dadosDaColeta, done) {
 
 var Condominio = mongoose.model('Condominio', CondominioSchema);
 
-module.exports.Condominio = Condominio;
+module.exports = Condominio;
