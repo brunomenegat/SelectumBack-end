@@ -4,11 +4,13 @@ var Comercio = require("./controllers/comercioController")
 
 routes.post("/novo-comercio", Comercio.criar_comercio); //Novo Comercio
 
-routes.post("/nova-coleta", Comercio.adicionar_coleta); //Nova coleta
+routes.route("/nova-coleta") //Nova coleta
+.post(Comercio.adicionar_coleta)
+.put(Comercio.adicionar_coleta)
 
-routes.get("/busca-comercios/:nome", Comercio.listar_comercios_nome); //Procura 1 Comercio Especifico
+routes.get("/busca-comercios/:nome", Comercio.listar_comercios_nome); //Lista comercios dado 1 nome
 
-routes.route("/remove-comercio/:nome")
+routes.route("/remove-comercio/:nome") //Remove comercio pelo nome
 .get(Comercio.remover_comercio_nome)
 .delete(Comercio.remover_comercio_nome)
 
