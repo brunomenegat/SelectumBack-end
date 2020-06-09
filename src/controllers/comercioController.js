@@ -1,10 +1,10 @@
 var Comercio = require("../models/comercio")
 
 exports.criar_comercio = function(req, res) {
-    Comercio.create(req.body, function(err, data) {
+    Comercio.create(req.body, function(err, comercio) {
         if (err) return console.error(err);
         console.log("Comercio criado e salvo!!!")
-        res.json(data)
+        res.json(comercio)
     })
 };
 
