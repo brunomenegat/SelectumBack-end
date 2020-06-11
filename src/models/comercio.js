@@ -1,32 +1,23 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 
 const ComercioSchema = new mongoose.Schema({
-    username: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
     password: { type: String, required: true, select: false },
     nome: { type: String, required: true },
     CNPJ: { type: String, required: true, unique: true },
     parceiro: { type: Boolean, required: true },
-    fone: { type: String, required: true },
-    email: { type: String, required: true },
+    telefone: { type: String, required: true },
     endereco: { type: String, required: true },
+    diaPgto: { type: String, required: true },
     criadoEm: { type: String, default: Date },
     totalKg: {
         organico: { type: Number, default: 0 },
         metal: { type: Number, default: 0 },
         papel: { type: Number, default: 0 },
         plastico: { type: Number, default: 0 },
-        vidro: { type: Number, default: 0 }
-    },
-    coletasKg: [{
-        _id: false,
-        data: { type: String, default: Date },
-        organico: Number,
-        metal: Number,
-        papel: Number,
-        plastico: Number,
-        vidro: Number
-    }]
+        vidro: { type: Number, default: 0 },
+    }
 });
 
 // gerar o hash do password antes de salvar

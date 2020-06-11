@@ -8,6 +8,21 @@ exports.criar_comercio = function(req, res) {
     })
 };
 
+exports.listar_comercios_nome = function(req, res) {
+    Comercio.find({nome: req.query.nome}, function(err, comercio) {
+        if (err) return console.error(err);
+        res.json(comercio);
+    })
+};
+
+exports.remover_comercio_nome = function(req, res) {
+    Comercio.deleteOne({nome: req.query.nome}, function(err, data) {
+        if (err) return console.error(err);
+        res.json(data);
+    })
+};
+
+/*
 exports.adicionar_coleta = function(req, res) {
     Comercio.findOne({nome: req.body.nome}, function(err, comercio) {
         if (err) return console.error(err);
@@ -22,17 +37,4 @@ exports.adicionar_coleta = function(req, res) {
         res.json(comercio);
     })
 };
-
-exports.listar_comercios_nome = function(req, res) {
-    Comercio.find({nome: req.query.nome}, function(err, comercio) {
-        if (err) return console.error(err);
-        res.json(comercio);
-    })
-};
-
-exports.remover_comercio_nome = function(req, res) {
-    Comercio.deleteOne({nome: req.query.nome}, function(err, data) {
-        if (err) return console.error(err);
-        res.json(data);
-    })
-};
+*/

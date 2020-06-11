@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-var CatadorSchema = new mongoose.Schema({
+var ColetadorSchema = new mongoose.Schema({
     nome: {type: String, required: true},
     fone: {type: String, required: true},
     endereco: {type: String, required: true},
@@ -23,7 +23,7 @@ var CatadorSchema = new mongoose.Schema({
     }
 });
 
-CatadorSchema.methods.addColeta = function(dadosDaColeta, done) {
+ColetadorSchema.methods.addColeta = function(dadosDaColeta, done) {
     this.coletas.push(dadosDaColeta);
     totalKg.organico += dadosDaColeta.organico;
     totalKg.metal += dadosDaColeta.metal;
@@ -33,6 +33,4 @@ CatadorSchema.methods.addColeta = function(dadosDaColeta, done) {
     done(null, this)
 };
 
-var Catador = mongoose.model('Catador', CatadorSchema);
-
-module.exports = Catador;
+module.exports = mongoose.model('Coletador', ColetadorSchema);
