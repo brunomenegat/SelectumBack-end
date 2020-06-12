@@ -10,7 +10,7 @@ const ColetaSchema = new mongoose.Schema({
     relIds : [{
         coletador: { type: String, required: true },
         local: { type: String, required: true },
-    }]
+        nome: { type: String, required: true },//
 });
 
 module.exports = mongoose.model('Coleta', ColetaSchema);
