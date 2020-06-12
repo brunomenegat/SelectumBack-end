@@ -2,15 +2,16 @@ const mongoose = require('mongoose');
 
 const ColetaSchema = new mongoose.Schema({
     data: { type: String, default: Date },
+    coletador: { type: String, required: true },
+    cliente : { type: String, required: true },
+    endereco: { type: String, required: true },
     organico: { type: Number, required: true },
     metal: { type: Number, required: true },
     papel: { type: Number, required: true },
     plastico: { type: Number, required: true },
     vidro: { type: Number, required: true },
-    relIds : [{
-        coletador: { type: String, required: true },
-        local: { type: String, required: true },
-        nome: { type: String, required: true },//
+    coletadorID: { type: String },
+    clienteID: { type: String },
 });
 
 module.exports = mongoose.model('Coleta', ColetaSchema);

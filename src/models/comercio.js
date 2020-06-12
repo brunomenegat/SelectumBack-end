@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const ComercioSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true, select: false },
+    senha: { type: String, required: true, select: false },
     nome: { type: String, required: true },
     CNPJ: { type: String, required: true, unique: true },
     parceiro: { type: Boolean, required: true },
@@ -17,25 +17,26 @@ const ComercioSchema = new mongoose.Schema({
         papel: { type: Number, default: 0 },
         plastico: { type: Number, default: 0 },
         vidro: { type: Number, default: 0 },
-    }
+    },
+    coletasIds: [{ _id : false, type: String }],
 });
 
-// gerar o hash do password antes de salvar
+// gerar o hash da senha antes de salvar
 ComercioSchema.pre('save', function (next) {
     const user = this
 
-    // gerar o hash apenas se o password mudou o para um novo usuário
-    if (!user.isModified('password')) { return next() }
+    // gerar o hash apenas se o senha mudou o para um novo usuário
+    if (!user.isModified('senha')) { return next() }
 
     // gerando o hash
-    const hash = bcrypt.hashSync(user.password)
+    const hash = bcrypt.hashSync(user.senha)
 
-    // trocando o password pelo hash
-    user.password = hash
+    // trocando senha pelo hash
+    user.senha = hash
     next()
 })
 
-// method to compare a given password with the database hash
+// metodo que compara a senha com o hash do banco de dados
 ComercioSchema.methods.comparePassword = function (password) {
     const user = this
     return bcrypt.compareSync(password, user.password)

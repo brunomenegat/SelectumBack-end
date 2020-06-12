@@ -1,6 +1,6 @@
 var Comercio = require("../models/comercio")
 
-exports.criar_comercio = function(req, res) {
+exports.criarComercio = function(req, res) {
     Comercio.create(req.body, function(err, comercio) {
         if (err) return console.error(err);
         console.log("Comercio criado e salvo!!!")
@@ -8,14 +8,14 @@ exports.criar_comercio = function(req, res) {
     })
 };
 
-exports.listar_comercios_nome = function(req, res) {
+exports.listarComerciosNome = function(req, res) {
     Comercio.find({nome: req.query.nome}, function(err, comercio) {
         if (err) return console.error(err);
         res.json(comercio);
     })
 };
 
-exports.remover_comercio_nome = function(req, res) {
+exports.removerComercioNome = function(req, res) {
     Comercio.deleteOne({nome: req.query.nome}, function(err, data) {
         if (err) return console.error(err);
         res.json(data);
