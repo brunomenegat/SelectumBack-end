@@ -6,7 +6,7 @@ exports.novaColeta = function (req, res) {
     var dados = req.body
     Coleta.create(dados, function (err, coleta) {
         if (err) return console.error(err);
-        Comercio.findOne({ nome: dados.cliente }, function (err, cliente) {
+        Comercio.findOne({ nome: dados.cliente }, function (err, cliente) { // ADICIONAR ENDERECO À BUSCA
             if (err) return console.error(err);
             Coletador.findOne({ nome: dados.coletador }, function (err, coletador) {
                 Coleta.findById(coleta._id, function (err, coleta) {
