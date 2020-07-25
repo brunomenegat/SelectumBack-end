@@ -1,4 +1,4 @@
-var Comercio = require("../models/comercio")
+var Comercio = require("../../models/comercio")
 
 exports.listarComerciosNome = async (req, res) => {
     const comercios = await Comercio.find({nome: req.query.nome});

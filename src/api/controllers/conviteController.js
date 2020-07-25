@@ -1,11 +1,11 @@
-var Convite = require("../models/convite")
-var nodemailer = require('../nodemailerconf')
+var Convite = require("../../models/convite")
+var nodemailer = require("../../config/nodemailer")
 
-exports.exibePagina = function (req, res) {
+exibePagina = async (req, res, next) => {
     return res.render("")
 }
 
-exports.convidaCliente = function (req, res) {
+convidaCliente = async (req, res, next) => {
     data = req.body
     Convite.create({email: data.email}, function (err, convitedata) {
         if (err) return console.error(err);
@@ -14,4 +14,9 @@ exports.convidaCliente = function (req, res) {
         var url = `/novo-comercio/${token}/${data.email}/${data.entrada}/${data.mensal}/${data.meses}/${data.parceiro}`
         res.send(url) //enviar email p/ cliente pedindo para acessar esta url para concluir o cadastro
     })
+}
+
+module.exports = {
+    exibePagina,
+    convidaCliente
 }

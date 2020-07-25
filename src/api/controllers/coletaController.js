@@ -1,6 +1,6 @@
-var Coleta = require("../models/coleta")
-var Comercio = require("../models/comercio")
-var Coletador = require("../models/coletador")
+var Coleta = require("../../models/coleta")
+var Comercio = require("../../models/comercio")
+var Coletador = require("../../models/coletor")
 
 exports.novaColeta = function (req, res) {
     var dados = req.body

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const ColetaSchema = new mongoose.Schema({
     data: { type: String, default: Date },
-    coletador: { type: String, required: true },
+    coletor: { type: String, required: true },
     cliente : { type: String, required: true },
     endereco: { type: String, required: true },
     organico: { type: Number, required: true },
@@ -10,7 +10,7 @@ const ColetaSchema = new mongoose.Schema({
     papel: { type: Number, required: true },
     plastico: { type: Number, required: true },
     vidro: { type: Number, required: true },
-    coletadorID: { type: String },
+    coletorID: { type: String },
     clienteID: { type: String },
 });
 
