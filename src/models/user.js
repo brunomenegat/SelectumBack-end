@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    criadoEm: { type: String, default: Date },
-    adm:  { type: Boolean, required: true},
+    nome: { type: String, required: true },
+    adm: { type: Boolean, required: true},
     email: { type: String, required: true, unique: true },
     senha: { type: String, required: true, select: false },
-    nome: { type: String, required: true },
     endereco: { type: String, required: true },
-    telefone: { type: String, required: true }
+    telefone: { type: String, required: true },
+    criadoEm: { type: String, default: Date },
 });
 
 // gerar o hash da senha antes de salvar
