@@ -1,26 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
+const { ColetorSchema } = require("./coletor")
 
-var CondominioSchema = new mongoose.Schema({
-    nome: {type: String, required: true},
-    fone: {type: String, required: true},
-    endereco: {type: String, required: true},
-    apartamentos: {total: Number, contratados: Number, naoContratados: Number},
-    criadoEm: {type: String, default: Date},
-    coletas: [{
-        organico: Number,
-        metal: Number,
-        papel: Number,
-        plastico: Number,
-        vidro: Number,
-        data: {type: String, default: Date}
-    }]
-});
+let CondominioSchema = ColetorSchema.clone()
 
-CondominioSchema.methods.addColeta = function(dadosDaColeta, done) {
-    this.coletas.push(dadosDaColeta);
-    done(null, this)
-};
+CondominioSchema.add({
+    cnpj: { type: String, required: true, unique: true },
+    apartamentos: { total: Number, contratados: Number, naoContratados: Number },
+    diaPgto: { type: String, required: true },
+})
 
-var Condominio = mongoose.model('Condominio', CondominioSchema);
+CondominioSchema.remove('cpf')
 
-module.exports = Condominio;
+module.exports = mongoose.model('CondominioModel', CondominioSchema)

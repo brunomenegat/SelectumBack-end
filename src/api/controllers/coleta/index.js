@@ -1,9 +1,7 @@
-var Coleta = require("../../models/coleta")
-var Comercio = require("../../models/comercio")
-var Coletador = require("../../models/coletor")
+
 
 novaColeta = function (req, res) {
-    var dados = req.body
+    const dados = req.body
     Coleta.create(dados, function (err, coleta) {
         if (err) return console.error(err);
         Comercio.findOne({ nome: dados.cliente }, function (err, cliente) { // ADICIONAR ENDERECO À BUSCA (possibilidade de franquias)

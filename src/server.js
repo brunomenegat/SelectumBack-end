@@ -1,8 +1,8 @@
 const express = require("express");             //web module
 const dotenv = require("dotenv");               //for work with .env
-const mongoose = require("mongoose");           //write objects for MongoDB as you would in JS (ODM)
 const bodyParser = require("body-parser");      //body parsing middleware
 const routes = require('./api/routes');         //archieve i created for store routes
+const mongoConnection = require("./loaders/mongo")
 
 const app = express();
 
@@ -10,16 +10,16 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 //usar middlewares
 app.use(routes)
-//usar tratamento de erro
-
-dotenv.config();
-
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+app.use((err, req, res, next) => {
+    res.status(err.status)
+    res.json(err)
+    res.end;
+    // console.error('\nESTAMOS AQUI NO SERVER\n\n', err)
 })
-.then(() => console.log("DB CONNECTED!! \n"))
-.catch(err => console.log(`Error ocurred: ${err}`));
 
-app.listen(process.env.PORT);
+dotenv.config({ path: './src/config/.env' })
 
+mongoConnection()
+
+app.listen(process.env.PORT)
+console.log('listenning on port: ',process.env.PORT,"\n")

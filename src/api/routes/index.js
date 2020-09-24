@@ -1,5 +1,14 @@
-var express = require('express');
+const express = require('express');
+const { UserSchema } = require('../../models/user');
 var routes = express.Router();
+const UserController = require('../controllers/user/index');
+
+routes.route("/usuario")
+.get(UserController.getAllUsers)
+.post(UserController.postUser)
+
+/*
+
 var Coleta = require("./controllers/coletaController")
 var Comercio = require("./controllers/comercioController")
 var Convite = require("./controllers/conviteController");
@@ -32,5 +41,6 @@ routes.route("/nova-coleta")
 .post(novaColeta)
 .put()
 
+*/
 
 module.exports = routes;

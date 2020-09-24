@@ -14,4 +14,4 @@ const ColetaSchema = new mongoose.Schema({
     clienteID: { type: String },
 });
 
-module.exports = mongoose.model('Coleta', ColetaSchema);
+module.exports = mongoose.model('ColetaModel', ColetaSchema)

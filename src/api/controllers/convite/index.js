@@ -1,4 +1,4 @@
-var Convite = require("../../models/convite")
+
 //var nodemailer = require("../../config/nodemailer")
 
 exibePagina = async (req, res, next) => {

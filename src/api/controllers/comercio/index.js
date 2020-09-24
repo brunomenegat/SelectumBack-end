@@ -1,12 +1,12 @@
-var Comercio = require("../../models/comercio")
 
-exports.listarComerciosNome = async (req, res) => {
+
+listarComerciosNome = async (req, res) => {
     const comercios = await Comercio.find({nome: req.query.nome});
     console.log(comercios)
     res.json(comercios)
 };
 
-exports.criarComercio = function(req, res) {
+criarComercio = function(req, res) {
     Comercio.create(req.body, function(err, comercio) {
         if (err) return console.error(err);
         console.log("Comercio criado e salvo!!!")
@@ -14,7 +14,7 @@ exports.criarComercio = function(req, res) {
     })
 };
 
-exports.removerComercioNome = function(req, res) {
+removerComercioNome = function(req, res) {
     Comercio.deleteOne({nome: req.query.nome}, function(err, data) {
         if (err) return console.error(err);
         res.json(data);

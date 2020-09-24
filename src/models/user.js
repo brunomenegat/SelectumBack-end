@@ -1,17 +1,19 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema({
-    nome: { type: String, required: true },
-    adm: { type: Boolean, required: true},
+    adm: { type: Boolean, required: true },
+    cpf: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     senha: { type: String, required: true, select: false },
-    endereco: { type: String, required: true },
+    nome: { type: String, required: true },
+    endereco: { type: String, required: true, unique: true },
     telefone: { type: String, required: true },
     criadoEm: { type: String, default: Date },
 });
 
 // gerar o hash da senha antes de salvar
-ComercioSchema.pre('save', function (next) {
+UserSchema.pre('save', function (next) {
     const user = this
 
     // gerar o hash apenas se o senha mudou o para um novo usuário
@@ -26,9 +28,14 @@ ComercioSchema.pre('save', function (next) {
 })
 
 // metodo que compara a senha com o hash do banco de dados
-ComercioSchema.methods.comparePassword = function (password) {
+UserSchema.methods.comparePassword = function (password) {
     const user = this
     return bcrypt.compareSync(password, user.password)
 }
 
-module.exports = mongoose.model('User', UserSchema);
+const UserModel = mongoose.model('UserModel', UserSchema)
+
+module.exports = {
+    UserSchema,
+    UserModel,
+}
