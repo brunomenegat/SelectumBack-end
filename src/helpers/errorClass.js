@@ -1,9 +1,9 @@
 
 class errorFomart extends Error{
 
-    constructor (err, status = 500, mesagem = 'Internal Server Error') {
+    constructor (err, status = 500, message = 'Internal Server Error') {
         super(err)
-        this.mensagem = mesagem;
+        this.message = message;
         this.status = status;
         this.erroObject = `idiota`
         Error.captureStackTrace(this, this.constructor)
@@ -17,7 +17,6 @@ class validationError extends errorFomart{
         this.erroObject = 'érro maluco'
     }
 } ;
-
 
 
 module.exports = { errorFomart, validationError };

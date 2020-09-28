@@ -3,19 +3,8 @@ const { UserSchema } = require('./user')
 
 let ColetorSchema = UserSchema.clone()
 
-ColetorSchema.add({
-    totalKg: {
-        organico: { type: Number, default: 0 },
-        metal: { type: Number, default: 0 },
-        papel: { type: Number, default: 0 },
-        plastico: { type: Number, default: 0 },
-        vidro: { type: Number, default: 0 },
-    }
-})
+ColetorSchema.remove('adm')
 
-const ColetorModel = mongoose.model('ColetorModel', ColetorSchema)
+ColetorSchema.add({ reciclado: { type: Number, default: 0 } })
 
-module.exports = {
-    ColetorSchema,
-    ColetorModel,
-}
+module.exports = mongoose.model('ColetorModel', ColetorSchema);
