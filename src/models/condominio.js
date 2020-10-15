@@ -7,7 +7,6 @@ let CondominioSchema = ResidenciaSchema.clone().remove('cpf')
     apartamentos: { 
         total: Number,
         contratados: Number,
-        naoContratados: { type: Number, default: total - contratados}, 
     }
 });
 

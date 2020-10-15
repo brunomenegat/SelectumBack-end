@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const ColetaSchema = new mongoose.Schema({
+    pesoKg: { type: Number, required: true },
     data: { type: String, default: Date },
     rotaID: { type: String, required: true },
     coletor: {
