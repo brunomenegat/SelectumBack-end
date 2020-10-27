@@ -3,13 +3,25 @@ const bcrypt = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema({
     adm: { type: Boolean, default: false, select: false },
-    cpf: { type: String, required: true, unique: true },
-    email: { type: String, required: true },
-    senha: { type: String, required: true, select: false },
+    endereco: {
+        geoLoc:  [{type: Number, required: true}], //[latitude, longitude]
+        rua: {type: String, required: true},
+        numero: {type: Number, required: true},
+        UF: {type: String, required: true},
+        cidade: {type: String, required: true},
+        bairro: {type: String, required: true}
+    },
     nome: { type: String, required: true },
-    endereco: { type: String, required: true, unique: true },
+    cpf: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
+    senha: { type: String, required: true, select: false },
     telefone: { type: String, required: true },
-    criadoEm: { type: String, default: Date },
+    atividade: {
+        ativo: {type: Boolean, default: true},
+        criadoEm: { type: String, default: Date },
+        data_desativacao: {type: String, default: 'Ainda ativo'},
+        motivo : {type: String, default: 'Ainda ativo'}
+    }
 });
 
 // gerar o hash da senha antes de salvar
