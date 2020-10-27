@@ -3,10 +3,11 @@ const dotenv = require("dotenv");     //para trabalhar com variaveis de ambiente
 
 dotenv.config({ path: '../../src/config/.env' });
 
-mongoConnection = async () => {
+const mongoConnection = async () => {
     return await mongoose.connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useCreateIndex: true
     })
     .then(console.log('DB Connected! PORT: 27017'))
     .catch(err => {console.log(`Erro ao tentar conectar com o servidor de BD: ${err}`)})

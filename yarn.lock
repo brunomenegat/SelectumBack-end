@@ -1519,6 +1519,11 @@ babel-plugin-jest-hoist@^26.5.0:
     "@types/babel__core" "^7.0.0"
     "@types/babel__traverse" "^7.0.6"
 
+babel-plugin-remove-comments@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remove-comments/-/babel-plugin-remove-comments-2.0.0.tgz#48c3a12ba0416a78b7cc8fe100098b2f737a2d6b"
+  integrity sha1-SMOhK6BBani3zI/hAAmLL3N6LWs=
+
 babel-preset-current-node-syntax@^0.1.3:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/babel-preset-current-node-syntax/-/babel-preset-current-node-syntax-0.1.4.tgz#826f1f8e7245ad534714ba001f84f7e906c3b615"
