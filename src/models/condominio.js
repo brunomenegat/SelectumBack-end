@@ -1,12 +1,14 @@
 const mongoose = require('mongoose')
 const { ResidenciaSchema } = require("./residencia")
 
-let CondominioSchema = ResidenciaSchema.clone().remove('cpf')
-.add({
+let CondominioSchema = ResidenciaSchema.clone().remove('cpf').add({
     cnpj: { type: String, required: true, unique: true },
     apartamentos: { 
         total: Number,
-        contratados: Number,
+        contratados: {
+            aptos: [Number],
+            qtde: Number
+        }
     }
 });
 

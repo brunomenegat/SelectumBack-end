@@ -1,3 +1,4 @@
+const { GraphQLServer } = require('graphql-yoga') //wraped express
 const express = require("express");             //web module
 const dotenv = require("dotenv");               //for work with .env
 const bodyParser = require("body-parser");      //body parsing middleware
@@ -14,7 +15,6 @@ app.use((err: any, req: any, res: any, next: any) => {
     res.status(err.status)
     res.json(err)
     res.end;
-    // console.error('\nESTAMOS AQUI NO SERVER\n\n', err)
 })
 
 dotenv.config({ path: './src/config/.env' })

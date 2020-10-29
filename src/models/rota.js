@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
 
 const RotaSchema = new mongoose.Schema({
-    nome: { type: String, required: true}, // cidade + bairro + num da rota
-    integrantesIDs: [String],
-    reciclado: { type: Number, default: 0 }
+    pontos: [[Number]],
+    nome: { type: String, required: true} // talvez cidade + UF + bairro
 });
 
 module.exports = mongoose.model('RotaModel', RotaSchema)

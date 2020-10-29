@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const UserSchema = new mongoose.Schema({
     adm: { type: Boolean, default: false, select: false },
     endereco: {
-        geoLoc:  [{type: Number, required: true}], //[latitude, longitude]
+        geoLoc:  [{type: Number, required: true, unique: true}], //[latitude, longitude]
         rua: {type: String, required: true},
         numero: {type: Number, required: true},
         UF: {type: String, required: true},
