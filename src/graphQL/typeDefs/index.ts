@@ -1,39 +1,127 @@
 const typeDefs = `
-    type endereco {
+    type Contract {
+        dataVcmto: String!
+        duracao: String!
+    }
+
+
+    type Plano_Diario {
+        dia: String!
+        bairros: [String]!
+    }
+
+
+    type Plano_Semanal {
+        plano: [Plano_Diario!]!
+    }
+
+
+    type Endereco {
         geoLoc: [Float!]
         rua: String
         numero: Int
+        bloco_apto: String
         UF: String
         cidade: String
         bairro: String
     }
 
 
-    type Residencia {
-        adm: Boolean,
-        endereco: {
-            geoLoc:  [{type: Number, required: true, unique: true}], //[latitude, longitude]
-            rua: {type: String, required: true},
-            numero: {type: Number, required: true},
-            UF: {type: String, required: true},
-            cidade: {type: String, required: true},
-            bairro: {type: String, required: true}
-        },
-        nome: { type: String, required: true },
-        cpf: { type: String, required: true, unique: true },
-        email: { type: String, required: true, unique: true },
-        senha: { type: String, required: true, select: false },
-        telefone: { type: String, required: true },
-        atividade: {
-            ativo: {type: Boolean, default: true},
-            criadoEm: { type: String, default: Date },
-            data_desativacao: {type: String, default: 'Ainda ativo'},
-            motivo : {type: String, default: 'Ainda ativo'}
-        }
+    type Atividade {
+        ativo: Boolean!
+        criadoEm: String!
+        data_desativacao: String!
+        motivo : String!
     }
 
-    type Query {
-    hello(name: String): String!
+
+    type User {
+        id: ID
+        adm: Boolean
+        nome: String!
+        cpf: String
+        cnpj: String
+        email: String
+        telefone: String
+        reciclado_Ton: Float
+        endereco: Endereco
+        atividade: Atividade
     }
+
+
+    type Residencia {
+        contratante: User!
+        diaPgto: String
+    }
+
+
+    type Coletador {
+        parceiro: User!
+        contrato: Contract
+        plano: Plano_Semanal
+    } 
+
+
+    type Comercio {
+        empresa: User!
+        parceiro: Boolean!
+    }
+
+
+    type Apartamento {
+        contratante: User!
+        diaPgto: String
+        condominio_id: ID
+    }
+    type ApartamentosS {
+        contratados: [String]
+        qtde_total: Int
+        qtde_contratados: Int
+    }
+
+    type Condominio {
+        contratante: User
+        apartamentos: ApartamentosS
+    }
+
+
+    type Rota {
+        id: ID
+        pontos: [[Float!]!]!
+        nome: String
+    }
+
+
+    type Convite {
+        email: String!
+        data: String!
+    }
+
+
+    type ColetadorInf {
+        nome: String
+        id: ID
+    }
+
+
+    type Detalhe {
+        foto: String
+        comentario: String
+    }
+
+
+    type Coleta {
+        rota_id: String
+        coletador: ColetadorInf!
+        data: String!
+        pesoKg: Float!
+        detalhes: [Detalhe]
+    }
+
+
+    type Query {
+        info: String!
+    }
+    
 `
 export { typeDefs };

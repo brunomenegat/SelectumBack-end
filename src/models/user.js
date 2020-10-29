@@ -3,19 +3,21 @@ const bcrypt = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema({
     adm: { type: Boolean, default: false, select: false },
-    endereco: {
-        geoLoc:  [{type: Number, required: true, unique: true}], //[latitude, longitude]
-        rua: {type: String, required: true},
-        numero: {type: Number, required: true},
-        UF: {type: String, required: true},
-        cidade: {type: String, required: true},
-        bairro: {type: String, required: true}
-    },
     nome: { type: String, required: true },
     cpf: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     senha: { type: String, required: true, select: false },
     telefone: { type: String, required: true },
+    reciclado_Ton: { type: Number, default: 0 },
+    endereco: {
+        geoLoc:  [{type: Number, required: true, unique: true}], //[latitude, longitude]
+        rua: {type: String, required: true},
+        numero: {type: Number, required: true},
+        bloco_apto: {type : String, default: null},
+        UF: {type: String, required: true},
+        cidade: {type: String, required: true},
+        bairro: {type: String, required: true}
+    },
     atividade: {
         ativo: {type: Boolean, default: true},
         criadoEm: { type: String, default: Date },

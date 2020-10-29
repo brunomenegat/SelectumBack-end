@@ -1,7 +1,7 @@
 const resolvers = {
     Query: {
-        hello: (_, { name }) => `Hello ${name || 'World'}`,
-    },
+        info: () => `This is the API of a Hackernews Clone`
+    }
 }
 
 export { resolvers };
