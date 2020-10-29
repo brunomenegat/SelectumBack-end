@@ -5,10 +5,9 @@ const dotenv = require('dotenv');               //for work with .env
 const bodyParser = require('body-parser');      //body parsing middleware
 const mongoConnection = require("./loaders/mongo")
 
-const server = new GraphQLServer({ typeDefs, resolvers })
-
-server.express.use(bodyParser.urlencoded({ extended: true }))
-server.express.use(bodyParser.json())
+const server = new GraphQLServer({ typeDefs, resolvers, middlewares: 
+    [bodyParser.json(), bodyParser.urlencoded({ extended: true })],
+})
 
 server.express.use((err: any, req: any, res: any, next: any) => {
     res.status(err.status)
@@ -27,7 +26,7 @@ const options = {
     playground: '/playground',
 }
 
-server.start(options, ({ port }) =>
-    console.log(`Server started, listening on port ${port} for incoming requests.`)
+server.start(options, ({ port }) => console.log(
+    `WebServer listening on port ${port} for incoming requests.`)
 )
 
