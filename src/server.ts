@@ -7,16 +7,14 @@ const mongoConnection = require("./loaders/mongo")
 
 const server = new GraphQLServer({ typeDefs, resolvers})
 
-server.express.use(bodyParser.urlencoded({ extended: true }))
-server.express.use(bodyParser.json())
-server.express.use((err: any, req: any, res: any, next: any) => {
+server.express.use(bodyParser.urlencoded({ extended: true }), bodyParser.json(),
+(err: any, req: any, res: any, next: any) => {
     res.status(err.status)
     res.json(err)
     res.end;
 })
 
 dotenv.config({ path: './src/config/.env' })
-
 mongoConnection()
 
 const options = {
@@ -25,7 +23,6 @@ const options = {
     subscriptions: '/subscriptions',
     playground: '/playground',
 }
-
 server.start(options, ({ port }) => console.log(
     `WebServer listening on port ${port} for incoming requests.`)
 )
