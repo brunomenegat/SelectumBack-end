@@ -1,17 +1,17 @@
-const Coleta = require('../../models/coleta')
+const Apartamento = require('../../models/apartamento')
 const { validationError } = require('../../helpers/errorClass')
 
-class ColetaDomain {
+class ApartamentoDomain {
     listar = async () => {
-        const data = await Coleta.find()
+        const data = await Apartamento.find()
         .catch(err => {throw( new validationError(err))})
         return data;
     }
     buscarId = async (id) => {
-        const data = await Coleta.findById(id)
+        const data = await Apartamento.findById(id)
         return data;
     }
     
 }
 
-module.exports = ColetaDomain;
+module.exports = ApartamentoDomain;

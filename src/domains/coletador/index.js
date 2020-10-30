@@ -1,17 +1,17 @@
-const Coleta = require('../../models/coleta')
+const Coletador = require('../../models/coletador')
 const { validationError } = require('../../helpers/errorClass')
 
-class ColetaDomain {
+class ColetadorDomain {
     listar = async () => {
-        const data = await Coleta.find()
+        const data = await Coletador.find()
         .catch(err => {throw( new validationError(err))})
         return data;
     }
     buscarId = async (id) => {
-        const data = await Coleta.findById(id)
+        const data = await Coletador.findById(id)
         return data;
     }
     
 }
 
-module.exports = ColetaDomain;
+module.exports = ColetadorDomain;

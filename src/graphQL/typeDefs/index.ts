@@ -7,7 +7,7 @@ const typeDefs = `
 
     type Plano_Diario {
         dia: String!
-        bairros: [String]!
+        bairros: [String!]!
     }
 
 
@@ -36,7 +36,7 @@ const typeDefs = `
 
 
     type User {
-        id: ID
+        id: ID!
         adm: Boolean
         nome: String!
         cpf: String
@@ -51,7 +51,7 @@ const typeDefs = `
 
     type Residencia {
         contratante: User!
-        diaPgto: String
+        diaPgto: String!
     }
 
 
@@ -74,21 +74,20 @@ const typeDefs = `
         condominio_id: ID
     }
     type ApartamentosS {
-        contratados: [String]
+        contratados: [String!]
         qtde_total: Int
         qtde_contratados: Int
     }
-
     type Condominio {
-        contratante: User
+        contratante: User!
         apartamentos: ApartamentosS
     }
 
 
     type Rota {
-        id: ID
+        id: ID!
         pontos: [[Float!]!]!
-        nome: String
+        nome: String!
     }
 
 
@@ -99,8 +98,8 @@ const typeDefs = `
 
 
     type ColetadorInf {
-        nome: String
-        id: ID
+        nome: String!
+        id: ID!
     }
 
 
@@ -111,7 +110,7 @@ const typeDefs = `
 
 
     type Coleta {
-        rota_id: String
+        rota_id: ID
         coletador: ColetadorInf!
         data: String!
         pesoKg: Float!
@@ -120,7 +119,29 @@ const typeDefs = `
 
 
     type Query {
-        info: String!
+        rotas: [Rota!]!
+        rota(id: ID): Rota
+
+        residencias: [Residencia!]
+        residencia(id: ID): Residencia
+
+        convites: [Convite!]
+        convite(id: ID): Residencia
+
+        condominios: [Condominio!]
+        condominio(id: ID): Condominio
+
+        comercios: [Comercio!]
+        comercio(id: ID): Comercio
+
+        coletadores: [Coletador!]
+        coletador(id: ID): Coletador
+
+        coletas: [Coleta!]
+        coleta(id: ID): Coleta
+
+        apartamentos: [Apartamento!]
+        apartamento(id: ID): Apartamento
     }
     
 `
