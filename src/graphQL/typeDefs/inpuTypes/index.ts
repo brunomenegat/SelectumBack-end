@@ -36,6 +36,7 @@ const inpuTypes = `
         cpf: String
         cnpj: String
         email: String
+        senha: String
         telefone: String
         reciclado_Ton: Float
         endereco: Endereco_Input
@@ -106,7 +107,10 @@ const inpuTypes = `
     type Mutation {
         criarRota(input: Rota_Input): Rota
 
-        criarApto(input: Apartamento_Input): Apartamento
+        criarApto(
+            contratante: User_Input
+            diaPgto: String
+            condominio_id: ID): Apartamento
     
     }
 
