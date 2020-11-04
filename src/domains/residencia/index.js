@@ -1,5 +1,5 @@
 const { ResidenciaModel: Residencia } = require('../../models/residencia')
-const { validationError } = require('../../helpers/errorClass')
+const { validationError } = require('../../helpers/errorCreate')
 
 class ResidenciaDomain {
     listar = async () => {

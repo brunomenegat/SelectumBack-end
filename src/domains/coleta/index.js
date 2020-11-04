@@ -1,5 +1,5 @@
 const Coleta = require('../../models/coleta')
-const { validationError } = require('../../helpers/errorClass')
+const { validationError } = require('../../helpers/errorCreate')
 
 class ColetaDomain {
     listar = async () => {

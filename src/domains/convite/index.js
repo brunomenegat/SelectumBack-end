@@ -1,5 +1,5 @@
 const Convite = require('../../models/convite')
-const { validationError } = require('../../helpers/errorClass')
+const { validationError } = require('../../helpers/errorCreate')
 
 class ConviteDomain {
     listar = async () => {

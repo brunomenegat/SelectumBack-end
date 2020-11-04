@@ -1,5 +1,5 @@
 const Coletador = require('../../models/coletador')
-const { validationError } = require('../../helpers/errorClass')
+const { validationError } = require('../../helpers/errorCreate')
 
 class ColetadorDomain {
     listar = async () => {

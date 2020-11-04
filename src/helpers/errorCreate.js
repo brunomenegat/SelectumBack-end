@@ -14,7 +14,7 @@ class errorFomart extends Error{
 class validationError extends errorFomart{
     constructor(err) {
         super(err, 422)
-        this.erroObject = 'érro maluco'
+        this.erroObject = 'erro maluco'
     }
 } ;
 

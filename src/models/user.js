@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
     telefone: { type: String, required: true },
     reciclado_Ton: { type: Number, default: 0 },
     endereco: {
-        geoLoc:  [{type: Number, required: true, unique: true}], //[latitude, longitude]
+        geoLoc: [{type: Number, required: true, unique: true}], //[latitude, longitude]
         rua: {type: String, required: true},
         numero: {type: Number, required: true},
         bloco_apto: {type : String, default: null},

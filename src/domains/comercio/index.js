@@ -1,5 +1,5 @@
 const Comercio = require('../../models/comercio')
-const { validationError } = require('../../helpers/errorClass')
+const { validationError } = require('../../helpers/errorCreate')
 
 class ComercioDomain {
     listar = async () => {
