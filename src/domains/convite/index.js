@@ -11,7 +11,10 @@ class ConviteDomain {
         const data = await Convite.findById(id)
         return data;
     }
-    
+    buscar = async (query) => {
+        const data = await Convite.find(query)
+        return data;
+    }
 }
 
 module.exports = ConviteDomain;

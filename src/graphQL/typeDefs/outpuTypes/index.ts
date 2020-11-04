@@ -105,29 +105,37 @@ const outpuTypes = `
 
     
     type Query {
-        rotas: [Rota!]!
-        rota(id: ID): Rota
+        rotasList: [Rota!]!
+        rotaID(id: ID): Rota
+        rotaFind(query: Rota_Input) : [Rota]
 
-        residencias: [Residencia!]
-        residencia(id: ID): Residencia
+        residenciasList: [Residencia!]
+        residenciaID(id: ID): Residencia
+        residenciaFind(query: String) : [Residencia]
 
-        convites: [Convite!]
-        convite(id: ID): Residencia
+        convitesList: [Convite!]
+        conviteID(id: ID): Residencia
+        conviteFind(query: String) : [Convite]
 
-        condominios: [Condominio!]
-        condominio(id: ID): Condominio
+        condominiosList: [Condominio!]
+        condominioID(id: ID): Condominio
+        condominioFind(query: String) : [Condominio]
 
-        comercios: [Comercio!]
-        comercio(id: ID): Comercio
+        comerciosList: [Comercio!]
+        comercioID(id: ID): Comercio
+        comercioFind(query: String) : [Comercio]
 
-        coletadores: [Coletador!]
-        coletador(id: ID): Coletador
+        coletadoresList: [Coletador!]
+        coletadorID(id: ID): Coletador
+        coletadorFind(query: String) : [Coletador]
 
-        coletas: [Coleta!]
-        coleta(id: ID): Coleta
+        coletasList: [Coleta!]
+        coletaID(id: ID): Coleta
+        coletaFind(query: String) : [Coleta]
 
-        apartamentos: [Apartamento!]
-        apartamento(id: ID): Apartamento
+        apartamentosList: [Apartamento!]
+        apartamentoID(id: ID): Apartamento
+        apartamentoFind(query: String) : [Apartamento]
     }
     
 `

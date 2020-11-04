@@ -12,65 +12,125 @@ const Residencias = new ResidenciaDomain()
 const Convites = new ConviteDomain()
 const Condominios = new CondominioDomain()
 const Comercios = new ComercioDomain()
-const Coletatores = new ColetadorDomain()
+const Coletadores = new ColetadorDomain()
 const Coletas = new ColetaDomain()
-const Apartamentos =  new ApartamentoDomain()
+const Apartamentos = new ApartamentoDomain()
 
 const resolvers = {
     //------------------------------QUERIES------------------------------------
     Query: {
-        // RESOLVER DAS ROTAS
-        rotas: () => Rotas.listar(),
-        rota: (_, { id }) => Rotas.buscarId(id),
+        // -------------------RESOLVER DAS ROTAS------------------------------------------------------
+        rotasList: () => Rotas.listar(),
+
+        rotaID: (_, { id }) => Rotas.buscarId(id),
+
+        rotaFind: (_, { query }) => {
+            Object.keys(query).forEach( key => {
+                query[key] = new RegExp(query[key], 'i')
+            });
+            return Rotas.buscar(query)
+            
+        },
 
 
-        // RESOLVER DAS RESIDENCIAS
-        residencias: () => Residencias.listar(),
-        residencia: (_, { id }) => Residencias.buscarId(id),
+        // -------------------RESOLVER DAS RESIDENCIAS------------------------------------------------------
+        residenciasList: () => Residencias.listar(),
+        
+        residenciaID: (_, { id }) => Residencias.buscarId(id),
+
+        residenciaFind: (_, { query }) => {
+            Object.keys(query).forEach( key => {
+                query[key] = new RegExp(query[key], 'i')
+            });
+            return Residencias.buscar(query)
+        },
 
 
-        // RESOLVER DOS CONVITES
-        convites: () => Residencias.listar(),
-        convite: (_, { id }) => Residencias.buscarId(id),
+        // -------------------RESOLVER DOS CONVITES------------------------------------------------------
+        convitesList: () => Residencias.listar(),
+        
+        conviteID: (_, { id }) => Residencias.buscarId(id),
 
+        conviteFind: (_, { query }) => {
+            Object.keys(query).forEach( key => {
+                query[key] = new RegExp(query[key], 'i')
+            });
+            return Convites.buscar(query)
+        },
 
-        // RESOLVER DOS CONDOMINIOS
-        condominios: () => Residencias.listar(),
-        condominio: (_, { id }) => Residencias.buscarId(id),
+        // -------------------RESOLVER DOS CONDOMINIOS------------------------------------------------------
+        condominiosList: () => Residencias.listar(),
+        
+        condominioID: (_, { id }) => Residencias.buscarId(id),
 
+        condominioFind: (_, { query }) => {
+            Object.keys(query).forEach( key => {
+                query[key] = new RegExp(query[key], 'i')
+            });
+            return Condominios.buscar(query)
+        },
 
-        // RESOLVER DOS COMERCIOS
-        comercios: () => Residencias.listar(),
-        comercio: (_, { id }) => Residencias.buscarId(id),
+        // -------------------RESOLVER DOS COMERCIOS------------------------------------------------------
+        comerciosList: () => Residencias.listar(),
+        
+        comercioID: (_, { id }) => Residencias.buscarId(id),
 
+        comercioFind: (_, { query }) => {
+            Object.keys(query).forEach( key => {
+                query[key] = new RegExp(query[key], 'i')
+            });
+            return Comercios.buscar(query)
+        },
 
-        // RESOLVER DOS COLETADORRES
-        coletadores: () => Residencias.listar(),
-        coletador: (_, { id }) => Residencias.buscarId(id),
+        // -------------------RESOLVER DOS COLETADORRES------------------------------------------------------
+        coletadoresList: () => Residencias.listar(),
+        
+        coletadorID: (_, { id }) => Residencias.buscarId(id),
 
+        coletadorFind: (_, { query }) => {
+            Object.keys(query).forEach( key => {
+                query[key] = new RegExp(query[key], 'i')
+            });
+            return Coletadores.buscar(query)
+        },
 
-        //RESOLVER DAS COLETAS
-        coletas: () => Residencias.listar(),
-        coleta: (_, { id }) => Residencias.buscarId(id),
+        // -------------------RESOLVER DAS COLETAS------------------------------------------------------
+        coletasList: () => Residencias.listar(),
+        
+        coletaID: (_, { id }) => Residencias.buscarId(id),
 
+        coletaFind: (_, { query }) => {
+            Object.keys(query).forEach( key => {
+                query[key] = new RegExp(query[key], 'i')
+            });
+            return Coletas.buscar(query)
+        },
 
-        // RESOLVER DOS APARTAMENTOS
-        apartamentos: () => Residencias.listar(),
-        apartamento: (_, { id }) => Residencias.buscarId(id),
+        // -------------------RESOLVER DOS APARTAMENTOS------------------------------------------------------
+        apartamentosList: () => Residencias.listar(),
+        
+        apartamentoID: (_, { id }) => Residencias.buscarId(id),
+
+        apartamentoFind: (_, { query }) => {
+            Object.keys(query).forEach( key => {
+                query[key] = new RegExp(query[key], 'i')
+            });
+            return Apartamentos.buscar(query)
+        },
     },
 
     //------------------------------MUTATIONS------------------------------------
 
     Mutation: {
-        // RESOLVER DAS ROTAS
+        // -------------------RESOLVER DAS ROTAS------------------------------------------------------
         criarRota: (_, { input }) => {
             return Rotas.criar(input)
         },
 
 
-        // RESOLVER DOS APARTAMENTOS
-        criarApto: (parent, args) => {
-            return Apartamentos.criar(args)
+        // -------------------RESOLVER DOS APARTAMENTOS------------------------------------------------------
+        criarApto: (_, { input }) => {
+            return Apartamentos.criar(input)
         }
     }
 }

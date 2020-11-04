@@ -10,7 +10,10 @@ class ApartamentoDomain {
         const data = await Apartamento.findById(id)
         return data;
     }
-
+    buscar = async (query) => {
+        const data = await Apartamento.find(query)
+        return data;
+    }
 
     // MUTATIONS
     criar = async (obj) => {

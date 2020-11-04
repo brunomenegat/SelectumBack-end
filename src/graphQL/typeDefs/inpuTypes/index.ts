@@ -75,7 +75,7 @@ const inpuTypes = `
     }
 
     input Rota_Input {
-        
+        id: ID
         pontos: [[Float]]
         nome: String
     }
@@ -107,10 +107,7 @@ const inpuTypes = `
     type Mutation {
         criarRota(input: Rota_Input): Rota
 
-        criarApto(
-            contratante: User_Input
-            diaPgto: String
-            condominio_id: ID): Apartamento
+        criarApto(input: Apartamento_Input): Apartamento
     
     }
 

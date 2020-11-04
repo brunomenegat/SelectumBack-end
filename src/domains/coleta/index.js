@@ -11,7 +11,10 @@ class ColetaDomain {
         const data = await Coleta.findById(id)
         return data;
     }
-    
+    buscar = async (query) => {
+        const data = await Coleta.find(query)
+        return data;
+    }
 }
 
 module.exports = ColetaDomain;

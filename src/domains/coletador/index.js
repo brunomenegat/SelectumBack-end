@@ -11,7 +11,10 @@ class ColetadorDomain {
         const data = await Coletador.findById(id)
         return data;
     }
-    
+    buscar = async (query) => {
+        const data = await Coletador.find(query)
+        return data;
+    }
 }
 
 module.exports = ColetadorDomain;

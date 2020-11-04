@@ -11,7 +11,10 @@ class ResidenciaDomain {
         const data = await Residencia.findById(id)
         return data;
     }
-    
+    buscar = async (query) => {
+        const data = await Residencia.find(query)
+        return data;
+    }
 }
 
 module.exports = ResidenciaDomain;
