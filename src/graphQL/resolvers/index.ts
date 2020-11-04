@@ -63,17 +63,15 @@ const resolvers = {
 
     Mutation: {
         // RESOLVER DAS ROTAS
-        criarRota: (_, { stringData }) => {
-            const obj = JSON.parse(stringData)
-            return Rotas.criar(obj)
+        criarRota: (_, { input }) => {
+            return Rotas.criar(input)
         },
 
 
         // RESOLVER DOS APARTAMENTOS
-        // criarApto: (_, { stringData }) => {
-        //     const obj = JSON.parse(stringData)
-        //     return Apartamentos.criar(obj)
-        // }
+        criarApto: (parent, args) => {
+            return Apartamentos.criar(args)
+        }
     }
 }
 

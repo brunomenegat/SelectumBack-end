@@ -4,17 +4,14 @@ const outpuTypes = `
         duracao: String!
     }
 
-
     type Plano_Diario {
         dia: String!
         bairros: [String!]!
     }
 
-
     type Plano_Semanal {
         plano: [Plano_Diario!]!
     }
-
 
     type Endereco {
         geoLoc: [Float!]
@@ -26,14 +23,12 @@ const outpuTypes = `
         bairro: String
     }
 
-
     type Atividade {
         ativo: Boolean!
         criadoEm: String!
         data_desativacao: String!
         motivo : String!
     }
-
 
     type User {
         id: ID!
@@ -48,12 +43,10 @@ const outpuTypes = `
         atividade: Atividade
     }
 
-
     type Residencia {
         contratante: User!
         diaPgto: String!
     }
-
 
     type Coletador {
         parceiro: User!
@@ -61,12 +54,10 @@ const outpuTypes = `
         plano: Plano_Semanal
     } 
 
-
     type Comercio {
         empresa: User!
         parceiro: Boolean!
     }
-
 
     type Apartamento {
         contratante: User!
@@ -83,31 +74,26 @@ const outpuTypes = `
         apartamentos: ApartamentosS
     }
 
-
     type Rota {
         id: ID!
         pontos: [[Float!]!]!
         nome: String!
     }
 
-
     type Convite {
         email: String!
         data: String!
     }
-
 
     type ColetadorInf {
         nome: String!
         id: ID!
     }
 
-
     type Detalhe {
         foto: String
         comentario: String
     }
-
 
     type Coleta {
         rota_id: ID
@@ -117,7 +103,7 @@ const outpuTypes = `
         detalhes: [Detalhe]
     }
 
-
+    
     type Query {
         rotas: [Rota!]!
         rota(id: ID): Rota
