@@ -24,12 +24,15 @@ const resolvers = {
 
         rotaID: (_, { id }) => Rotas.buscarId(id),
 
-        rotaFind: (_, { query }) => {
+        rotaFind: (_, { query }, context, info) => {
+            let selection = new String('')
+            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
+                selection = selection.concat(element.name.value).concat(' ')
+            }); 
             Object.keys(query).forEach( key => {
                 query[key] = new RegExp(query[key], 'i')
             });
-            return Rotas.buscar(query)
-            
+            return Rotas.buscar(query, selection)
         },
 
 

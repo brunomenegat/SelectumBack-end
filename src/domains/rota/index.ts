@@ -10,8 +10,9 @@ class RotaDomain {
         const data = await Rota.findById(id)
         return data;
     }   
-    buscar = async (query) => {
-        const data = await Rota.find(query)
+    buscar = async (query, selection) => {
+        const data = await Rota.find(query, selection)
+        console.log(data)
         return data;
     }
 
