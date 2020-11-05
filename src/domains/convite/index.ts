@@ -1,6 +1,7 @@
 const Convite = require('../../models/convite')
 
 class ConviteDomain {
+    // QUERIES
     listar = async () => {
         const data = await Convite.find()
         return data;

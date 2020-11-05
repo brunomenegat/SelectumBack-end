@@ -1,6 +1,7 @@
 const Coleta = require('../../models/coleta')
 
 class ColetaDomain {
+    // QUERIES
     listar = async () => {
         const data = await Coleta.find()
         return data;

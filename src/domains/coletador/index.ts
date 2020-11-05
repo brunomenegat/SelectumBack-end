@@ -1,6 +1,7 @@
 const Coletador = require('../../models/coletador')
 
 class ColetadorDomain {
+    // QUERIES
     listar = async () => {
         const data = await Coletador.find()
         return data;

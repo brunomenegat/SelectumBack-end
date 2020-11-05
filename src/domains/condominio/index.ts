@@ -1,6 +1,7 @@
 const Condominio = require('../../models/condominio')
 
 class CondominioDomain {
+    // QUERIES
     listar = async () => {
         const data = await Condominio.find()
         return data;
