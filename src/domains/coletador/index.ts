@@ -1,6 +1,6 @@
 const Coletador = require('../../models/coletador')
 
-class ColetadorDomain {
+export default class ColetadorDomain {
     // QUERIES
     listar = async () => {
         const data = await Coletador.find()
@@ -16,4 +16,3 @@ class ColetadorDomain {
     }
 }
 
-module.exports = ColetadorDomain;

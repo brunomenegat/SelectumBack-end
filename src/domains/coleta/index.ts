@@ -1,6 +1,6 @@
 const Coleta = require('../../models/coleta')
 
-class ColetaDomain {
+export default class ColetaDomain {
     // QUERIES
     listar = async () => {
         const data = await Coleta.find()
@@ -16,4 +16,3 @@ class ColetaDomain {
     }
 }
 
-module.exports = ColetaDomain;

@@ -1,6 +1,6 @@
 const Convite = require('../../models/convite')
 
-class ConviteDomain {
+export default class ConviteDomain {
     // QUERIES
     listar = async () => {
         const data = await Convite.find()
@@ -15,5 +15,3 @@ class ConviteDomain {
         return data;
     }
 }
-
-module.exports = ConviteDomain;

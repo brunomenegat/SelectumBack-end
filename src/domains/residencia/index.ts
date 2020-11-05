@@ -1,6 +1,6 @@
 const { ResidenciaModel: Residencia } = require('../../models/residencia')
 
-class ResidenciaDomain {
+export default class ResidenciaDomain {
     // QUERIES
     listar = async () => {
         const data = await Residencia.find()
@@ -16,4 +16,3 @@ class ResidenciaDomain {
     }
 }
 
-module.exports = ResidenciaDomain;

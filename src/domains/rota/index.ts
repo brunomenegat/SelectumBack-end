@@ -1,6 +1,6 @@
 const Rota = require('../../models/rota')
 
-class RotaDomain {
+export default class RotaDomain {
     // QUERIES
     listar = async () => {
         const data = await Rota.find()
@@ -24,5 +24,3 @@ class RotaDomain {
     
     
 }
-
-module.exports = RotaDomain;

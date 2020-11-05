@@ -1,6 +1,6 @@
 const Condominio = require('../../models/condominio')
 
-class CondominioDomain {
+export default class CondominioDomain {
     // QUERIES
     listar = async () => {
         const data = await Condominio.find()
@@ -15,5 +15,3 @@ class CondominioDomain {
         return data;
     }
 }
-
-module.exports = CondominioDomain;

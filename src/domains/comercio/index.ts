@@ -1,6 +1,6 @@
 const Comercio = require('../../models/comercio')
 
-class ComercioDomain {
+export default class ComercioDomain {
     // QUERIES
     listar = async () => {
         const data = await Comercio.find()
@@ -16,7 +16,6 @@ class ComercioDomain {
     }
 }
 
-module.exports = ComercioDomain;
 
 // let criarComercio = async () => {
 //     let comerce = new Comercio

@@ -1,168 +1,38 @@
-const RotaDomain = require('../../domains/rota')
-const ResidenciaDomain = require('../../domains/residencia')
-const ConviteDomain = require('../../domains/convite')
-const CondominioDomain = require('../../domains/condominio')
-const ComercioDomain = require('../../domains/comercio')
-const ColetadorDomain = require('../../domains/coletador')
-const ColetaDomain = require('../../domains/coleta')
-const ApartamentoDomain = require('../../domains/apartamento')
-
-const Rotas = new RotaDomain()
-const Residencias = new ResidenciaDomain()
-const Convites = new ConviteDomain()
-const Condominios = new CondominioDomain()
-const Comercios = new ComercioDomain()
-const Coletadores = new ColetadorDomain()
-const Coletas = new ColetaDomain()
-const Apartamentos = new ApartamentoDomain()
+import apartamentoResolver from './apartamento'
+import coletaResolver from './coleta'
+import coletadorResolver from './coletador'
+import comercioResolver from './comercio'
+import condominioResolver from './condominio'
+import conviteResolver from './convite'
+import residenciaResolver from './residencia'
+import rotaResolver from './rota'
 
 const resolvers = {
     //--------------------------------QUERIES------------------------------------------
     Query: {
-        // -------------------RESOLVER DAS ROTAS------------------------------------------------------
-        rotasList: () => Rotas.listar(),
-
-        rotaID: (_, { id }) => Rotas.buscarId(id),
-
-        rotaFind: (_, { query }, __, info) => {
-            let selection = new String('')
-            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
-                selection = selection.concat(element.name.value).concat(' ')
-            }); 
-            Object.keys(query).forEach( key => {
-                query[key] = new RegExp(query[key], 'i')
-            });
-            return Rotas.buscar(query, selection)
-        },
-
-
-        // -------------------RESOLVER DAS RESIDENCIAS------------------------------------------------------
-        residenciasList: () => Residencias.listar(),
+        ...rotaResolver.query,
+        ...apartamentoResolver.query,
+        ...coletaResolver.query,
+        ...coletadorResolver.query,
+        ...comercioResolver.query,
+        ...condominioResolver.query,
+        ...conviteResolver.query,
+        ...residenciaResolver.query,
         
-        residenciaID: (_, { id }) => Residencias.buscarId(id),
-
-        residenciaFind: (_, { query }, __, info) => {
-            let selection = new String('')
-            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
-                selection = selection.concat(element.name.value).concat(' ')
-            }); 
-            Object.keys(query).forEach( key => {
-                query[key] = new RegExp(query[key], 'i')
-            });
-            return Residencias.buscar(query, selection)
-        },
-
-
-        // -------------------RESOLVER DOS CONVITES------------------------------------------------------
-        convitesList: () => Residencias.listar(),
-        
-        conviteID: (_, { id }) => Residencias.buscarId(id),
-
-        conviteFind: (_, { query }, __, info) => {
-            let selection = new String('')
-            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
-                selection = selection.concat(element.name.value).concat(' ')
-            }); 
-            Object.keys(query).forEach( key => {
-                query[key] = new RegExp(query[key], 'i')
-            });
-            return Convites.buscar(query, selection)
-        },
-
-        // -------------------RESOLVER DOS CONDOMINIOS------------------------------------------------------
-        condominiosList: () => Residencias.listar(),
-        
-        condominioID: (_, { id }) => Residencias.buscarId(id),
-
-        condominioFind: (_, { query }, __, info) => {
-            let selection = new String('')
-            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
-                selection = selection.concat(element.name.value).concat(' ')
-            }); 
-            Object.keys(query).forEach( key => {
-                query[key] = new RegExp(query[key], 'i')
-            });
-            return Condominios.buscar(query, selection)
-        },
-
-        // -------------------RESOLVER DOS COMERCIOS------------------------------------------------------
-        comerciosList: () => Residencias.listar(),
-        
-        comercioID: (_, { id }) => Residencias.buscarId(id),
-
-        comercioFind: (_, { query }, __, info) => {
-            let selection = new String('')
-            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
-                selection = selection.concat(element.name.value).concat(' ')
-            }); 
-            Object.keys(query).forEach( key => {
-                query[key] = new RegExp(query[key], 'i')
-            });
-            return Comercios.buscar(query, selection)
-        },
-
-        // -------------------RESOLVER DOS COLETADORRES------------------------------------------------------
-        coletadoresList: () => Residencias.listar(),
-        
-        coletadorID: (_, { id }) => Residencias.buscarId(id),
-
-        coletadorFind: (_, { query }, __, info) => {
-            let selection = new String('')
-            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
-                selection = selection.concat(element.name.value).concat(' ')
-            }); 
-            Object.keys(query).forEach( key => {
-                query[key] = new RegExp(query[key], 'i')
-            });
-            return Coletadores.buscar(query, selection)
-        },
-
-        // -------------------RESOLVER DAS COLETAS------------------------------------------------------
-        coletasList: () => Residencias.listar(),
-        
-        coletaID: (_, { id }) => Residencias.buscarId(id),
-
-        coletaFind: (_, { query }, __, info) => {
-            let selection = new String('')
-            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
-                selection = selection.concat(element.name.value).concat(' ')
-            }); 
-            Object.keys(query).forEach( key => {
-                query[key] = new RegExp(query[key], 'i')
-            });
-            return Coletas.buscar(query, selection)
-        },
-
-        // -------------------RESOLVER DOS APARTAMENTOS------------------------------------------------------
-        apartamentosList: () => Residencias.listar(),
-        
-        apartamentoID: (_, { id }) => Residencias.buscarId(id),
-
-        apartamentoFind: (_, { query }, __, info) => {
-            let selection = new String('')
-            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
-                selection = selection.concat(element.name.value).concat(' ')
-            }); 
-            Object.keys(query).forEach( key => {
-                query[key] = new RegExp(query[key], 'i')
-            });
-            return Apartamentos.buscar(query, selection)
-        },
     },
-
+    
     //------------------------------MUTATIONS------------------------------------
 
     Mutation: {
-        // -------------------RESOLVER DAS ROTAS------------------------------------------------------
-        criarRota: (_, { input }) => {
-            return Rotas.criar(input)
-        },
+        ...rotaResolver.mutation,
+        ...apartamentoResolver.mutation,
+        ...coletaResolver.mutation,
+        ...coletadorResolver.mutation,
+        ...comercioResolver.mutation,
+        ...condominioResolver.mutation,
+        ...conviteResolver.mutation,
+        ...residenciaResolver.mutation,
 
-
-        // -------------------RESOLVER DOS APARTAMENTOS------------------------------------------------------
-        criarApto: (_, { input }) => {
-            return Apartamentos.criar(input)
-        }
     }
 }
 
