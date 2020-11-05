@@ -12,7 +12,6 @@ class RotaDomain {
     }   
     buscar = async (query, selection) => {
         const data = await Rota.find(query, selection)
-        console.log(data)
         return data;
     }
 

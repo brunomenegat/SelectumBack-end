@@ -17,14 +17,14 @@ const Coletas = new ColetaDomain()
 const Apartamentos = new ApartamentoDomain()
 
 const resolvers = {
-    //------------------------------QUERIES------------------------------------
+    //--------------------------------QUERIES------------------------------------------
     Query: {
         // -------------------RESOLVER DAS ROTAS------------------------------------------------------
         rotasList: () => Rotas.listar(),
 
         rotaID: (_, { id }) => Rotas.buscarId(id),
 
-        rotaFind: (_, { query }, context, info) => {
+        rotaFind: (_, { query }, __, info) => {
             let selection = new String('')
             info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
                 selection = selection.concat(element.name.value).concat(' ')
@@ -41,11 +41,15 @@ const resolvers = {
         
         residenciaID: (_, { id }) => Residencias.buscarId(id),
 
-        residenciaFind: (_, { query }) => {
+        residenciaFind: (_, { query }, __, info) => {
+            let selection = new String('')
+            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
+                selection = selection.concat(element.name.value).concat(' ')
+            }); 
             Object.keys(query).forEach( key => {
                 query[key] = new RegExp(query[key], 'i')
             });
-            return Residencias.buscar(query)
+            return Residencias.buscar(query, selection)
         },
 
 
@@ -54,11 +58,15 @@ const resolvers = {
         
         conviteID: (_, { id }) => Residencias.buscarId(id),
 
-        conviteFind: (_, { query }) => {
+        conviteFind: (_, { query }, __, info) => {
+            let selection = new String('')
+            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
+                selection = selection.concat(element.name.value).concat(' ')
+            }); 
             Object.keys(query).forEach( key => {
                 query[key] = new RegExp(query[key], 'i')
             });
-            return Convites.buscar(query)
+            return Convites.buscar(query, selection)
         },
 
         // -------------------RESOLVER DOS CONDOMINIOS------------------------------------------------------
@@ -66,11 +74,15 @@ const resolvers = {
         
         condominioID: (_, { id }) => Residencias.buscarId(id),
 
-        condominioFind: (_, { query }) => {
+        condominioFind: (_, { query }, __, info) => {
+            let selection = new String('')
+            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
+                selection = selection.concat(element.name.value).concat(' ')
+            }); 
             Object.keys(query).forEach( key => {
                 query[key] = new RegExp(query[key], 'i')
             });
-            return Condominios.buscar(query)
+            return Condominios.buscar(query, selection)
         },
 
         // -------------------RESOLVER DOS COMERCIOS------------------------------------------------------
@@ -78,11 +90,15 @@ const resolvers = {
         
         comercioID: (_, { id }) => Residencias.buscarId(id),
 
-        comercioFind: (_, { query }) => {
+        comercioFind: (_, { query }, __, info) => {
+            let selection = new String('')
+            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
+                selection = selection.concat(element.name.value).concat(' ')
+            }); 
             Object.keys(query).forEach( key => {
                 query[key] = new RegExp(query[key], 'i')
             });
-            return Comercios.buscar(query)
+            return Comercios.buscar(query, selection)
         },
 
         // -------------------RESOLVER DOS COLETADORRES------------------------------------------------------
@@ -90,11 +106,15 @@ const resolvers = {
         
         coletadorID: (_, { id }) => Residencias.buscarId(id),
 
-        coletadorFind: (_, { query }) => {
+        coletadorFind: (_, { query }, __, info) => {
+            let selection = new String('')
+            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
+                selection = selection.concat(element.name.value).concat(' ')
+            }); 
             Object.keys(query).forEach( key => {
                 query[key] = new RegExp(query[key], 'i')
             });
-            return Coletadores.buscar(query)
+            return Coletadores.buscar(query, selection)
         },
 
         // -------------------RESOLVER DAS COLETAS------------------------------------------------------
@@ -102,11 +122,15 @@ const resolvers = {
         
         coletaID: (_, { id }) => Residencias.buscarId(id),
 
-        coletaFind: (_, { query }) => {
+        coletaFind: (_, { query }, __, info) => {
+            let selection = new String('')
+            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
+                selection = selection.concat(element.name.value).concat(' ')
+            }); 
             Object.keys(query).forEach( key => {
                 query[key] = new RegExp(query[key], 'i')
             });
-            return Coletas.buscar(query)
+            return Coletas.buscar(query, selection)
         },
 
         // -------------------RESOLVER DOS APARTAMENTOS------------------------------------------------------
@@ -114,11 +138,15 @@ const resolvers = {
         
         apartamentoID: (_, { id }) => Residencias.buscarId(id),
 
-        apartamentoFind: (_, { query }) => {
+        apartamentoFind: (_, { query }, __, info) => {
+            let selection = new String('')
+            info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
+                selection = selection.concat(element.name.value).concat(' ')
+            }); 
             Object.keys(query).forEach( key => {
                 query[key] = new RegExp(query[key], 'i')
             });
-            return Apartamentos.buscar(query)
+            return Apartamentos.buscar(query, selection)
         },
     },
 
