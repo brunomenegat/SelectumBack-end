@@ -2,16 +2,16 @@ const Comercio = require('../../models/comercio')
 
 export default class ComercioDomain {
     // QUERIES
-    listar = async () => {
-        const data = await Comercio.find()
+    listar = async (selection) => {
+        const data = await Comercio.find().select(selection)
         return data;
     }
     buscarId = async (id) => {
         const data = await Comercio.findById(id)
         return data;
     }
-    buscar = async (query, selection) => {
-        const data = await Comercio.find(query, selection)
+    buscar = async (query) => {
+        const data = await Comercio.find({ [query[0]]: query[1] })
         return data;
     }
 }

@@ -2,16 +2,16 @@ const Apartamento = require('../../models/apartamento')
 
 export default class ApartamentoDomain {
     // QUERIES
-    listar = async () => {
-        const data = await Apartamento.find()
+    listar = async (selection) => {
+        const data = await Apartamento.find().select(selection)
         return data;
     }
     buscarId = async (id) => {
         const data = await Apartamento.findById(id)
         return data;
     }
-    buscar = async (query, selection) => {
-        const data = await Apartamento.find(query, selection)
+    buscar = async (query) => {
+        const data = await Apartamento.find({ [query[0]]: query[1] })
         return data;
     }
 

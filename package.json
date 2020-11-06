@@ -11,6 +11,7 @@
     "build": "babel src/ --out-dir dist --extensions \".ts,.js\" --no-copy-ignored --source-maps inline  --minified"
   },
   "dependencies": {
+    "apollo-server-express": "^2.18.0-rc.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "easy-password-gen": "^2.1.0",

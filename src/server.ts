@@ -5,17 +5,10 @@ const dotenv = require('dotenv');                       // ambient variables in 
 const bodyParser = require('body-parser');              // body parsing middleware
 const mongoConnection = require("./loaders/mongo")      // database loader
 
-const server = new GraphQLServer({ typeDefs, resolvers })
-
-server.express.use(bodyParser.urlencoded({ extended: true }), bodyParser.json(),
-(err: any, req: any, res: any, next: any) => {
-    res.status(err.status)
-    res.json(err)
-    res.end;
-})
-
 dotenv.config({ path: './src/config/.env' })
 mongoConnection()
+
+const server = new GraphQLServer({ typeDefs, resolvers })
 
 const options = {
     port: process.env.PORT,

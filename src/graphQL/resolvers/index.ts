@@ -10,7 +10,6 @@ import rotaResolver from './rota'
 const resolvers = {
     //--------------------------------QUERIES------------------------------------------
     Query: {
-        ...rotaResolver.query,
         ...apartamentoResolver.query,
         ...coletaResolver.query,
         ...coletadorResolver.query,
@@ -18,13 +17,13 @@ const resolvers = {
         ...condominioResolver.query,
         ...conviteResolver.query,
         ...residenciaResolver.query,
+        ...rotaResolver.query,
         
     },
     
     //------------------------------MUTATIONS------------------------------------
 
     Mutation: {
-        ...rotaResolver.mutation,
         ...apartamentoResolver.mutation,
         ...coletaResolver.mutation,
         ...coletadorResolver.mutation,
@@ -32,6 +31,7 @@ const resolvers = {
         ...condominioResolver.mutation,
         ...conviteResolver.mutation,
         ...residenciaResolver.mutation,
+        ...rotaResolver.mutation,
 
     }
 }

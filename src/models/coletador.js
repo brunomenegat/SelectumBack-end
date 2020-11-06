@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 const { UserSchema } = require('./user')
 
-let ColetadorSchema = UserSchema.clone().remove('adm').add({ 
+let ColetadorSchema = new mongoose.Schema ({
+    parceiro: UserSchema.clone().remove('adm'),
     contrato: {
         dataVcmto: {type:String, default: Date},
         duracao: {type: String, default: '6 meses'}

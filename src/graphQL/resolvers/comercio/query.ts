@@ -3,18 +3,19 @@ const Comercios = new ComercioDomain()
 
 // -------------------QUERY RESOLVER DOS COMERCIOS------------------------------------------------------
 export default {
-    comerciosList: () => Comercios.listar(),
-        
-    comercioID: (_, { id }) => Comercios.buscarId(id),
-
-    comercioFind: (_, { query }, __, info) => {
+    comerciosList: (_, __, ___, info) => {
         let selection = new String('')
         info.operation.selectionSet.selections[0].selectionSet.selections.forEach(element => {
             selection = selection.concat(element.name.value).concat(' ')
-        }); 
-        Object.keys(query).forEach( key => {
-            query[key] = new RegExp(query[key], 'i')
         });
-        return Comercios.buscar(query, selection)
+        return Comercios.listar(selection)
+    },
+
+    comercioID: (_, { id }) => Comercios.buscarId(id),
+
+    comercioFind: (_, { query }) => {
+        query = query.split(': ')
+        query[1] = new RegExp(query[1], 'i')
+        return Comercios.buscar(query)
     },
 }

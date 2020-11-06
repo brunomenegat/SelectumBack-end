@@ -102,41 +102,41 @@ const outpuTypes = `
         pesoKg: Float!
         detalhes: [Detalhe]
     }
-
+    
     
     type Query {
-        rotasList: [Rota!]!
-        rotaID(id: ID): Rota
-        rotaFind(query: Rota_Input) : [Rota]
-
-        residenciasList: [Residencia!]
-        residenciaID(id: ID): Residencia
-        residenciaFind(query: String) : [Residencia]
-
-        convitesList: [Convite!]
-        conviteID(id: ID): Residencia
-        conviteFind(query: String) : [Convite]
+        apartamentosList: [Apartamento!]
+        apartamentoID(id: ID): Apartamento
+        apartamentoFind(query: String) : [Apartamento]
+        
+        coletasList: [Coleta!]
+        coletaID(id: ID): Coleta
+        coletaFind(query: String) : [Coleta]
+        
+        coletadoresList: [Coletador!]
+        coletadorID(id: ID): Coletador
+        coletadorFind(query: String) : [Coletador]
+        
+        comerciosList: [Comercio!]
+        comercioID(id: ID): Comercio
+        comercioFind(query: String) : [Comercio]
 
         condominiosList: [Condominio!]
         condominioID(id: ID): Condominio
         condominioFind(query: String) : [Condominio]
 
-        comerciosList: [Comercio!]
-        comercioID(id: ID): Comercio
-        comercioFind(query: String) : [Comercio]
-
-        coletadoresList: [Coletador!]
-        coletadorID(id: ID): Coletador
-        coletadorFind(query: String) : [Coletador]
-
-        coletasList: [Coleta!]
-        coletaID(id: ID): Coleta
-        coletaFind(query: String) : [Coleta]
-
-        apartamentosList: [Apartamento!]
-        apartamentoID(id: ID): Apartamento
-        apartamentoFind(query: String) : [Apartamento]
+        convitesList: [Convite!]
+        conviteID(id: ID): Residencia
+        conviteFind(query: String) : [Convite]        
+        
+        residenciasList: [Residencia!]
+        residenciaID(id: ID): Residencia
+        residenciaFind(query: String) : [Residencia]
+        
+        rotasList: [Rota!]!
+        rotaID(id: ID): Rota
+        rotaFind(query: String) : [Rota]
     }
     
-`
-export { outpuTypes };
+    `
+    export { outpuTypes };

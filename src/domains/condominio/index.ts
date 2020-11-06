@@ -2,16 +2,16 @@ const Condominio = require('../../models/condominio')
 
 export default class CondominioDomain {
     // QUERIES
-    listar = async () => {
-        const data = await Condominio.find()
+    listar = async (selection) => {
+        const data = await Condominio.find().select(selection)
         return data;
     }
     buscarId = async (id) => {
         const data = await Condominio.findById(id)
         return data;
     }
-    buscar = async (query, selection) => {
-        const data = await Condominio.find(query, selection)
+    buscar = async (query) => {
+        const data = await Condominio.find({ [query[0]]: query[1] })
         return data;
     }
 }
