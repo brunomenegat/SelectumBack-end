@@ -1,4 +1,5 @@
 const Apartamento = require('../../models/apartamento')
+const { isCpf, isCep} = require('validator-brazil')
 
 export default class ApartamentoDomain {
     // QUERIES
@@ -17,7 +18,17 @@ export default class ApartamentoDomain {
 
     // MUTATIONS
     criar = async (obj) => {
-        const data = await Apartamento.create(obj)
-        return data;
+        if (isCpf(obj.contratante.cpf)) {
+            if (isCep(obj.contratante.endereco.cep)) {
+                const data = await Apartamento.create(obj)
+                return data;
+            }
+            else throw ('erro: CEP inválido')
+        }
+        else throw ('erro: CPF inválido')
     }
+    
+    // atualizar = async (obj) => {
+
+    // }
 }

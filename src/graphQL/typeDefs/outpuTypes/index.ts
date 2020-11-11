@@ -15,6 +15,7 @@ const outpuTypes = `
 
     type Endereco {
         geoLoc: [Float!]
+        cep: String
         rua: String
         numero: Int
         bloco_apto: String

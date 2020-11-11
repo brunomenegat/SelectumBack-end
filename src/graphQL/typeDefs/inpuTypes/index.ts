@@ -15,6 +15,7 @@ const inpuTypes = `
 
     input Endereco_Input {
         geoLoc: [Float]
+        cep: String
         rua: String
         numero: Int
         bloco_apto: String

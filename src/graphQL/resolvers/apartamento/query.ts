@@ -15,16 +15,7 @@ export default {
 
     apartamentoFind: (_, { query }) => {
         query = query.split(': ')
-        query[1] = new RegExp(query[1], 'i')
-
-        // let separated = []
-        // let fieldsWithValues = query.split(', ')
-        // console.log(fieldsWithValues)
-        // fieldsWithValues.forEach(element => {
-        //     separated = element.split(' ')
-        //     separated[1] = new RegExp(separated[1], 'i')
-        // })
-        
+        query[1] = new RegExp(query[1], 'i')        
         return Apartamentos.buscar(query)
     },
 }

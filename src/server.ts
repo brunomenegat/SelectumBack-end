@@ -16,6 +16,4 @@ const options = {
     subscriptions: '/subscriptions',
     playground: '/playground',
 }
-server.start(options, ({ port }) => console.log(
-    `WebServer listening on port ${port} for incoming requests.`)
-)
+server.start(options, ({ port }) => console.log(`WebServer listening on port ${port} for incoming requests.`))
